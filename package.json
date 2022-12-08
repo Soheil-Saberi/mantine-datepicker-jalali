@@ -1,0 +1,20 @@
+{
+  "name": "@Soheil-Saberi/mantine-datepicker-jalali",
+  "version": "1.0.0",
+  "description": "jalali datepicker of mantine library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Soheil-Saberi/mantine-datepicker-jalali.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Soheil-Saberi/mantine-datepicker-jalali/issues"
+  },
+  "homepage": "https://github.com/Soheil-Saberi/mantine-datepicker-jalali#readme"
+}
