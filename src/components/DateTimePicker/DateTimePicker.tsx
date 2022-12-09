@@ -138,7 +138,17 @@ export const DateTimePicker = forwardRef<HTMLButtonElement, DateTimePickerProps>
 
   return (
     <PickerInputBase
-      formattedValue={formattedValue}
+      formattedValue={
+        locale && locale === 'fa'
+          ? new Intl.DateTimeFormat('fa-IR', { dateStyle: 'long', timeStyle: 'short' }).format(
+              _value
+            )
+          : formattedValue
+      }
+      style={{
+        direction: locale && locale === 'fa' ? 'rtl' : 'ltr',
+        textAlignLast: locale && locale === 'fa' ? 'right' : 'auto',
+      }}
       dropdownOpened={dropdownOpened}
       dropdownHandlers={dropdownHandlers}
       classNames={classNames}

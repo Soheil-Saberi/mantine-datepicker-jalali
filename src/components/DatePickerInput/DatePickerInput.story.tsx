@@ -104,7 +104,6 @@ export function Clearable() {
 }
 export function JalaliDatePickerInput() {
   const [value, setValue] = useState<Date>(new Date());
-  console.log(value);
   return (
     <div style={{ padding: 40, maxWidth: 400 }}>
       <DatePickerInput

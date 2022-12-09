@@ -66,7 +66,15 @@ export const DatePickerInput: DatePickerInputComponent = forwardRef((props, ref)
 
   return (
     <PickerInputBase
-      formattedValue={formattedValue}
+      formattedValue={
+        locale && locale === 'fa'
+          ? new Intl.DateTimeFormat('fa-IR', { dateStyle: 'long' }).format(_value)
+          : formattedValue
+      }
+      style={{
+        direction: locale && locale === 'fa' ? 'rtl' : 'ltr',
+        textAlignLast: locale && locale === 'fa' ? 'right' : 'auto',
+      }}
       dropdownOpened={dropdownOpened}
       dropdownHandlers={dropdownHandlers}
       classNames={classNames}
