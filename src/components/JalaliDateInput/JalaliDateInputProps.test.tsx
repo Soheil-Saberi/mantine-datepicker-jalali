@@ -10,7 +10,7 @@ import {
   itSupportsYearsListProps,
   itSupportsMonthsListProps,
 } from '../../tests';
-import { JalaliDateInput, JalaliDateInputProps } from './JalaliDateInputProps';
+import { JalaliDateInput, JalaliDateInputProps } from './JalaliDateInput';
 
 const defaultProps: JalaliDateInputProps = {
   defaultDate: new Date(2022, 3, 11),

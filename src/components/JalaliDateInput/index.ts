@@ -1,2 +1,2 @@
-export { JalaliDateInput } from './JalaliDateInputProps';
-export type { JalaliDateInputProps, DateInputStylesNames } from './JalaliDateInputProps';
+export { JalaliDateInput } from './JalaliDateInput';
+export type { JalaliDateInputProps, DateInputStylesNames } from './JalaliDateInput';

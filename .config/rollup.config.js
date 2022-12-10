@@ -1,4 +1,5 @@
-import path from 'node:path';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import commonjs from '@rollup/plugin-commonjs';
 import nodeExternals from 'rollup-plugin-node-externals';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
@@ -7,12 +8,12 @@ import json from '@rollup/plugin-json';
 import replace from '@rollup/plugin-replace';
 
 export default {
-  input: path.join(__dirname, '../src/index.ts'),
+  input: path.join(path.dirname(fileURLToPath(import.meta.url)), '../src/index.ts'),
   output: {
     format: 'cjs',
     externalLiveBindings: false,
     preserveModules: true,
-    dir: path.join(__dirname, '../dist'),
+    dir: path.join(path.dirname(fileURLToPath(import.meta.url)), '../dist'),
     sourcemap: 'inline',
   },
   external: ['dayjs'],

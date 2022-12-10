@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 import React, { useState } from 'react';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { TextInput, Button } from '@mantine/core';
-import { JalaliDateInput } from './JalaliDateInputProps';
+import { JalaliDateInput } from './JalaliDateInput';
 import 'dayjs/locale/fa';
 
 dayjs.extend(customParseFormat);
