@@ -10,6 +10,7 @@ node_modules/
 .eslintcache
 .node_repl_history
 .yarn-integrity
+src
 scripts
 yarn.lock
 .config
