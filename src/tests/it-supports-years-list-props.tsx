@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import React from 'react';
 import { render } from '@testing-library/react';
-import { DatesProvider } from '../components/DatesProvider';
+import { JalaliDatesProvider } from '../components/JalaliDatesProvider';
 
 export interface YearsListProps {
   locale?: string;
@@ -75,9 +75,9 @@ export function itSupportsYearsListProps(
 
   it('supports years list localization with DatesProvider', () => {
     const { container } = render(
-      <DatesProvider settings={{ locale: 'ru' }}>
+      <JalaliDatesProvider settings={{ locale: 'ru' }}>
         <Component {...requiredProps} yearsListFormat="MMM YYYY" />
-      </DatesProvider>
+      </JalaliDatesProvider>
     );
     expectYearNames(container, ruYearsNames);
   });

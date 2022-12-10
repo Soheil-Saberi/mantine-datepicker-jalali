@@ -1,6 +1,6 @@
 {
-  "name": "@Soheil-Saberi/mantine-datepicker-jalali",
-  "version": "1.0.0",
+  "name": "mantine-datepicker-jalali",
+  "version": "0.0.1",
   "description": "jalali datepicker of mantine library",
   "main": "index.js",
   "scripts": {
@@ -26,7 +26,7 @@
     "persian"
   ],
   "author": "Soheil Saberi",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Soheil-Saberi/mantine-datepicker-jalali/issues"
   },
