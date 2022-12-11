@@ -50,8 +50,8 @@
     "@mantine/hooks": ">=5.0.0"
   },
   "dependencies": {
-    "@mantine/core": ">=5.0.0",
-    "@mantine/hooks": ">=5.0.0",
+    "@mantine/core": ">=5.9.2",
+    "@mantine/hooks": ">=5.9.2",
     "dayjs": "^1.11.7"
   },
   "devDependencies": {
