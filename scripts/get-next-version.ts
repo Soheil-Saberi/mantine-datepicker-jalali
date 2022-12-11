@@ -1,5 +1,5 @@
 import chalk from 'chalk';
-// import signale from 'signale';
+import signale from 'signale';
 
 const VERSION_INCREMENT: string[] = ['patch', 'minor', 'major'];
 const VERSION_STAGE: string[] = ['alpha', 'beta', 'rc'];
@@ -7,12 +7,7 @@ const VERSION_STAGE: string[] = ['alpha', 'beta', 'rc'];
 // eslint-disable-next-line consistent-return
 export function getNextVersion(version: string, options: { type: string; stage?: string }): string {
   if (!VERSION_INCREMENT.includes(options.type)) {
-    // signale.error(
-    //   `Incorrect version type: ${chalk.cyan(
-    //     options.type
-    //   )}, it should be one of these values: ${VERSION_INCREMENT.join(', ')}`
-    // );
-    console.error(
+    signale.error(
       `Incorrect version type: ${chalk.cyan(
         options.type
       )}, it should be one of these values: ${VERSION_INCREMENT.join(', ')}`
@@ -22,12 +17,7 @@ export function getNextVersion(version: string, options: { type: string; stage?:
   }
 
   if (options.stage && !VERSION_STAGE.includes(options.stage)) {
-    // signale.error(
-    //   `Incorrect version stage: ${chalk.cyan(
-    //     options.stage
-    //   )}, it should be one of these values: ${VERSION_STAGE.join(', ')}`
-    // );
-    console.error(
+    signale.error(
       `Incorrect version stage: ${chalk.cyan(
         options.stage
       )}, it should be one of these values: ${VERSION_STAGE.join(', ')}`
@@ -86,8 +76,7 @@ export function getNextVersion(version: string, options: { type: string; stage?:
     // prerelease
     return `${rawVersion}-${updateStage(rawStage)}`;
   } catch (e) {
-    // signale.error('Failed to parse version');
-    console.error('Failed to parse version');
+    signale.error('Failed to parse version');
     process.exit(1);
   }
 }

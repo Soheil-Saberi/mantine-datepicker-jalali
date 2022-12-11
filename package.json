@@ -1,6 +1,6 @@
 {
   "name": "mantine-datepicker-jalali",
-  "version": "1.0.3",
+  "version": "1.0.6",
   "description": "jalali datepicker of mantine library",
   "types": "./declarations/index.d.ts",
   "main": "./dist/index.js",
@@ -50,6 +50,8 @@
     "@mantine/hooks": ">=5.0.0"
   },
   "dependencies": {
+    "@mantine/core": ">=5.0.0",
+    "@mantine/hooks": ">=5.0.0",
     "dayjs": "^1.11.7"
   },
   "devDependencies": {
@@ -73,6 +75,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
+    "@types/node": "^18.11.13",
     "@typescript-eslint/eslint-plugin": "^5.46.0",
     "@typescript-eslint/parser": "^5.46.0",
     "babel-loader": "^9.1.0",
@@ -100,7 +103,8 @@
     "react-docgen-typescript": "^2.2.2",
     "react-dom": "^18.2.0",
     "rimraf": "^3.0.2",
-    "rollup": "^3.7.0",
+    "rollup": "^3.7.2",
+    "rollup-plugin-dts": "^5.0.0",
     "rollup-plugin-esbuild": "^5.0.0",
     "rollup-plugin-node-externals": "^5.0.2",
     "signale": "^1.4.0",
