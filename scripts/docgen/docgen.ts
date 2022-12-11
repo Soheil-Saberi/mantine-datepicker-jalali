@@ -1,4 +1,5 @@
-import path from 'path';
+import path, { dirname } from 'path';
+import { fileURLToPath } from 'url';
 import fs from 'fs-extra';
 import { generateDeclarations } from './generate-declarations';
 
@@ -14,8 +15,12 @@ const PATHS = [
   '../../src/components/TimeInput/TimeInput.tsx',
   '../../src/components/YearPicker/YearPicker.tsx',
   '../../src/components/YearPickerInput/YearPickerInput.tsx',
-].map((filePath) => path.join(__dirname, filePath));
+].map((filePath) => path.join(dirname(fileURLToPath(import.meta.url)), filePath));
 
-fs.writeJSONSync(path.join(__dirname, '../../docs/docgen.json'), generateDeclarations(PATHS), {
-  spaces: 2,
-});
+fs.writeJSONSync(
+  path.join(dirname(fileURLToPath(import.meta.url)), '../../docs/docgen.json'),
+  generateDeclarations(PATHS),
+  {
+    spaces: 2,
+  }
+);

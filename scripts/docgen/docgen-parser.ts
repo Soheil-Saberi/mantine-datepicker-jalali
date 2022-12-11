@@ -1,4 +1,5 @@
-import path from 'path';
+import path, { dirname } from 'path';
+import { fileURLToPath } from 'url';
 import { withCustomConfig, PropItem } from 'react-docgen-typescript';
 
 const EXCLUDE_PROPS = [
@@ -27,20 +28,23 @@ const EXCLUDE_PROPS = [
   'pb',
 ];
 
-export const docgenParser = withCustomConfig(path.join(__dirname, '../../tsconfig.json'), {
-  savePropValueAsString: true,
-  shouldExtractLiteralValuesFromEnum: true,
-  propFilter: (prop: PropItem) => {
-    if (EXCLUDE_PROPS.includes(prop.name) || prop.name.startsWith('__')) {
-      return false;
-    }
+export const docgenParser = withCustomConfig(
+  path.join(dirname(fileURLToPath(import.meta.url)), '../../tsconfig.json'),
+  {
+    savePropValueAsString: true,
+    shouldExtractLiteralValuesFromEnum: true,
+    propFilter: (prop: PropItem) => {
+      if (EXCLUDE_PROPS.includes(prop.name) || prop.name.startsWith('__')) {
+        return false;
+      }
 
-    if (prop.declarations !== undefined && prop.declarations.length > 0) {
-      return Boolean(
-        prop.declarations.find((declaration) => !declaration.fileName.includes('node_modules'))
-      );
-    }
+      if (prop.declarations !== undefined && prop.declarations.length > 0) {
+        return Boolean(
+          prop.declarations.find((declaration) => !declaration.fileName.includes('node_modules'))
+        );
+      }
 
-    return true;
-  },
-});
+      return true;
+    },
+  }
+);
