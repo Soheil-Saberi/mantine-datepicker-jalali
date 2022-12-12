@@ -10,7 +10,7 @@ import replace from '@rollup/plugin-replace';
 export default {
   input: path.join(path.dirname(fileURLToPath(import.meta.url)), '../src/index.ts'),
   output: {
-    format: 'cjs',
+    format: 'esm',
     externalLiveBindings: false,
     preserveModules: true,
     dir: path.join(path.dirname(fileURLToPath(import.meta.url)), '../dist'),
