@@ -1,6 +1,6 @@
 {
   "name": "mantine-datepicker-jalali",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "jalali datepicker of mantine library",
   "types": "./declarations/index.d.ts",
   "main": "./dist/index.js",
