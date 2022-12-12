@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { MantineDemo } from '@mantine/ds';
 import { Stack, Text } from '@mantine/core';
-import { DatesRangeValue, DateValue, YearPickerInput } from 'mantine-dates-6';
+import { DatesRangeValue, DateValue, JalaliYearPickerInput } from 'mantine-datepicker-jalali/src';
 
 const code = `
 import { useState } from 'react';
@@ -64,7 +64,7 @@ function Demo() {
         <Text mb="sm">
           Pick one value, current value: <b>{singleValue ? singleValue.getFullYear() : 'null'}</b>
         </Text>
-        <YearPickerInput
+        <JalaliYearPickerInput
           value={singleValue}
           onChange={setSingleValue}
           popoverProps={{ withinPortal: true }}
@@ -80,7 +80,7 @@ function Demo() {
               : 'empty array'}
           </b>
         </Text>
-        <YearPickerInput
+        <JalaliYearPickerInput
           type="multiple"
           value={multipleDates}
           onChange={setMultipleDates}
@@ -100,7 +100,7 @@ function Demo() {
               : 'empty array'}
           </b>
         </Text>
-        <YearPickerInput
+        <JalaliYearPickerInput
           type="range"
           value={rangeValue}
           onChange={setRangeValue}

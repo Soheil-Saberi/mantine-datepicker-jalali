@@ -1,6 +1,6 @@
 import React from 'react';
 import { MantineDemo } from '@mantine/ds';
-import { DateTimePicker } from 'mantine-dates-6';
+import { JalaliDateTimePicker } from 'mantine-datepicker-jalali/src';
 
 const code = `
 import { DateTimePicker } from 'mantine-dates-6';
@@ -17,7 +17,10 @@ function Demo() {
 function Demo() {
   return (
     <div style={{ maxWidth: 400, margin: 'auto' }}>
-      <DateTimePicker placeholder="Pick date and time" popoverProps={{ withinPortal: true }} />
+      <JalaliDateTimePicker
+        placeholder="Pick date and time"
+        popoverProps={{ withinPortal: true }}
+      />
     </div>
   );
 }

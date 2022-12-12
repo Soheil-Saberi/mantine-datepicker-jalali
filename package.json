@@ -4,7 +4,6 @@
   "description": "jalali datepicker of mantine library",
   "types": "./declarations/index.d.ts",
   "main": "./dist/index.js",
-  "type": "module",
   "scripts": {
     "prepare": "npm run docgen && cd docs && yarn",
     "docgen": "esno scripts/docgen/docgen",
@@ -24,7 +23,7 @@
     "test": "npm run typecheck && npm run lint && npm run prettier:test && npm run jest && npm run build && npm run test:docs && npm run docs:build",
     "test:docs": "npm run typecheck:docs && npm run lint:docs",
     "build:dts": "tsc && rimraf temp",
-    "build": "rollup --config .config/rollup.config.js",
+    "build": "rollup --config .config/rollup.config.mjs",
     "release": "npm run build:dts && npm run build && esno scripts/release",
     "storybook": "start-storybook -p 7534 -c .config/.storybook"
   },
