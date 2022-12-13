@@ -1,4 +1,5 @@
 import path from 'path';
+import { fileURLToPath } from 'url';
 import fs from 'fs-extra';
 import { generateDeclarations } from './generate-declarations';
 
@@ -16,6 +17,10 @@ const PATHS = [
   '../../src/components/YearPickerInput/YearPickerInput.tsx',
 ].map((filePath) => path.join(__dirname, filePath));
 
-fs.writeJSONSync(path.join(__dirname, '../../docs/docgen.json'), generateDeclarations(PATHS), {
-  spaces: 2,
-});
+fs.writeJSONSync(
+  path.join(path.dirname(fileURLToPath(import.meta.url)), '../../docs/docgen.json'),
+  generateDeclarations(PATHS),
+  {
+    spaces: 2,
+  }
+);
