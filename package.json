@@ -1,6 +1,6 @@
 {
   "name": "mantine-datepicker-jalali",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "jalali datepicker of mantine library",
   "types": "./declarations/index.d.ts",
   "main": "./dist/index.js",
@@ -24,6 +24,7 @@
     "test:docs": "npm run typecheck:docs && npm run lint:docs",
     "build:dts": "tsc && rimraf temp",
     "build": "rollup --config .config/rollup.config.mjs",
+    "build:babel": "rm -rf dist && NODE_ENV=production babel src --out-dir dist --copy-files",
     "release": "npm run build:dts && npm run build && esno scripts/release",
     "storybook": "start-storybook -p 7534 -c .config/.storybook"
   },
@@ -49,12 +50,15 @@
     "@mantine/hooks": ">=5.0.0"
   },
   "dependencies": {
-    "@mantine/core": "^5.9.2",
-    "@mantine/hooks": "^5.9.2",
+    "@babel/polyfill": "^7.12.1",
+    "@mantine/core": ">=5.0.0",
+    "@mantine/hooks": ">=5.0.0",
     "dayjs": "^1.11.7"
   },
   "devDependencies": {
+    "@babel/cli": "^7.19.3",
     "@babel/core": "^7.20.5",
+    "@babel/preset-env": "^7.20.2",
     "@emotion/react": "^11.10.5",
     "@mantine/core": "^5.9.2",
     "@mantine/ds": "^5.9.2",
