@@ -4,7 +4,7 @@ import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, screen } from '@testing-library/react';
 import { itSupportsWeekdaysProps, WeekdaysTestProps } from './it-supports-weekdays-props';
-import { JalaliDatesProvider } from '../components/JalaliDatesProvider';
+import { DatesProvider } from '../components/DatesProvider';
 
 export interface MonthTestProps extends WeekdaysTestProps {
   weekendDays?: number[];
@@ -69,9 +69,9 @@ export function itSupportsMonthProps(
 
   it('renders correct days when firstDayOfWeek is set on DatesProvider', () => {
     const { container } = render(
-      <JalaliDatesProvider settings={{ firstDayOfWeek: 6 }}>
+      <DatesProvider settings={{ firstDayOfWeek: 6 }}>
         <Component {...requiredProps} />
-      </JalaliDatesProvider>
+      </DatesProvider>
     );
 
     const days = getDays(container);
@@ -131,9 +131,9 @@ export function itSupportsMonthProps(
 
   it('detects weekends correctly with custom weekendDays value on DatesProvider', () => {
     const { container } = render(
-      <JalaliDatesProvider settings={{ weekendDays: [3, 4] }}>
+      <DatesProvider settings={{ weekendDays: [3, 4] }}>
         <Component {...requiredProps} />
-      </JalaliDatesProvider>
+      </DatesProvider>
     );
     const days = getDays(container);
 
@@ -254,9 +254,9 @@ export function itSupportsMonthProps(
 
   it('supports default days aria-label localization with DatesProvider', () => {
     const { container } = render(
-      <JalaliDatesProvider settings={{ locale: 'ru' }}>
+      <DatesProvider settings={{ locale: 'ru' }}>
         <Component {...requiredProps} />
-      </JalaliDatesProvider>
+      </DatesProvider>
     );
     const days = getDays(container);
     expect(days[0]).toHaveAttribute('aria-label', '28 марта 2022');

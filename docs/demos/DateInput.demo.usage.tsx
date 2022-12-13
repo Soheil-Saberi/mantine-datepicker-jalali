@@ -2,7 +2,7 @@ import React from 'react';
 import { MantineDemo } from '@mantine/ds';
 // import { DateInput } from 'mantine-dates-6';
 // import { JalaliDateInput } from 'mantine-dates-6';
-import { JalaliDateInput } from 'mantine-datepicker-jalali/src';
+import { JalaliDateInput } from 'mantine-datepicker-jalali/declarations';
 
 const code = `
 import { DateInput } from 'mantine-dates-6';

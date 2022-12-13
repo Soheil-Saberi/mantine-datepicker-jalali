@@ -1,5 +1,4 @@
 import fs from 'fs';
-import path, { dirname } from 'path';
-import { fileURLToPath } from 'url';
+import path from 'path';
 
-fs.writeFileSync(path.join(dirname(fileURLToPath(import.meta.url)), '../docs/out/.nojekyll'), '');
+fs.writeFileSync(path.join(__dirname, '../docs/out/.nojekyll'), '');

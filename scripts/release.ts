@@ -1,8 +1,7 @@
-import path, { dirname } from 'path';
-import { fileURLToPath } from 'url';
+import path from 'node:path';
 import simpleGit from 'simple-git';
 import signale from 'signale';
-import yargs from 'yargs';
+import { argv } from 'yargs';
 import { execa } from 'execa';
 import chalk from 'chalk';
 import open from 'open';
@@ -12,7 +11,6 @@ import settings from '../settings';
 
 const git = simpleGit();
 
-const { argv } = yargs(process.argv);
 const _argv = argv as any;
 const type = _argv._[0];
 const { stage } = _argv;
@@ -29,7 +27,7 @@ async function release() {
   signale.info(`Releasing package, next version is ${chalk.cyan(version)}`);
 
   try {
-    const baseParams = ['publish', path.join(dirname(fileURLToPath(import.meta.url)), '..')];
+    const baseParams = ['publish', path.join(__dirname, '..')];
     const tagParams = stage ? ['--tag', 'next'] : [];
     await execa('yarn', [...baseParams, ...tagParams]);
     signale.success(`Package ${chalk.cyan(`${name}@${version}`)} was published to npm`);
@@ -39,7 +37,7 @@ async function release() {
     process.exit(1);
   }
 
-  await git.add(path.join(dirname(fileURLToPath(import.meta.url)), '../package.json'));
+  await git.add(path.join(__dirname, '../package.json'));
   await git.commit(`[release] Version: ${version}`);
   await git.push();
 

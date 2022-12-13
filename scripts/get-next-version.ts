@@ -1,30 +1,30 @@
-// import chalk from 'chalk';
+import chalk from 'chalk';
 import signale from 'signale';
 
-// const VERSION_INCREMENT: string[] = ['patch', 'minor', 'major'];
-// const VERSION_STAGE: string[] = ['alpha', 'beta', 'rc'];
+const VERSION_INCREMENT: string[] = ['patch', 'minor', 'major'];
+const VERSION_STAGE: string[] = ['alpha', 'beta', 'rc'];
 
 // eslint-disable-next-line consistent-return
 export function getNextVersion(version: string, options: { type: string; stage?: string }): string {
-  // if (!VERSION_INCREMENT.includes(options.type)) {
-  //   signale.error(
-  //     `Incorrect version type: ${chalk.cyan(
-  //       options.type
-  //     )}, it should be one of these values: ${VERSION_INCREMENT.join(', ')}`
-  //   );
+  if (!VERSION_INCREMENT.includes(options.type)) {
+    signale.error(
+      `Incorrect version type: ${chalk.cyan(
+        options.type
+      )}, it should be one of these values: ${VERSION_INCREMENT.join(', ')}`
+    );
 
-  //   process.exit(1);
-  // }
+    process.exit(1);
+  }
 
-  // if (options.stage && !VERSION_STAGE.includes(options.stage)) {
-  //   signale.error(
-  //     `Incorrect version stage: ${chalk.cyan(
-  //       options.stage
-  //     )}, it should be one of these values: ${VERSION_STAGE.join(', ')}`
-  //   );
+  if (options.stage && !VERSION_STAGE.includes(options.stage)) {
+    signale.error(
+      `Incorrect version stage: ${chalk.cyan(
+        options.stage
+      )}, it should be one of these values: ${VERSION_STAGE.join(', ')}`
+    );
 
-  //   process.exit(1);
-  // }
+    process.exit(1);
+  }
 
   const updateVersion = (raw: string): string => {
     const splitted = raw.split('.');

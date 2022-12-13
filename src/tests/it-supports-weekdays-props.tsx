@@ -1,7 +1,7 @@
 import 'dayjs/locale/ru';
 import React from 'react';
 import { screen, render } from '@testing-library/react';
-import { JalaliDatesProvider } from '../components/JalaliDatesProvider';
+import { DatesProvider } from '../components/DatesProvider';
 
 export function expectWeekdaysNames(names: string[]) {
   expect(screen.getAllByRole('columnheader').map((th) => th.textContent)).toStrictEqual(names);
@@ -29,9 +29,9 @@ export function itSupportsWeekdaysProps(
 
   it('supports weekdays names localization with DatesProvider', () => {
     render(
-      <JalaliDatesProvider settings={{ locale: 'ru' }}>
+      <DatesProvider settings={{ locale: 'ru' }}>
         <Component {...requiredProps} />
-      </JalaliDatesProvider>
+      </DatesProvider>
     );
 
     expectWeekdaysNames(['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс']);
@@ -60,9 +60,9 @@ export function itSupportsWeekdaysProps(
 
   it('changes weekdays order based on firstDayOfWeek defined on DatesProvider', () => {
     render(
-      <JalaliDatesProvider settings={{ firstDayOfWeek: 4 }}>
+      <DatesProvider settings={{ firstDayOfWeek: 4 }}>
         <Component {...requiredProps} />
-      </JalaliDatesProvider>
+      </DatesProvider>
     );
 
     expectWeekdaysNames(['Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu', 'We']);
